@@ -1,16 +1,92 @@
-### Hi there 👋
+import mysql.connector 
 
-<!--
-**jli000/jli000** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
 
-Here are some ideas to get you started:
+mycursor = mydb.cursor()
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+mycursor.execute("CREATE DATABASE menagerie ")
+
+
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("CREATE TABLE pets (name VARCHAR(20), owner VARCHAR(20), species VARCHAR(20), sex CHAR(1), birth DATE, death Date")
+
+
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("DESCRIBE pets")
+
+for x in mycursor:
+    print(x)
+
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT name, birtj FROM pets")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
+
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT owner, COUNT(*) FROM pets GROUP BY owner")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print (x)
+
+
+import mysql.connector 
+
+mydb = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="YU_oppdivide!20"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT name, birth, MONTH(birth)FROM pets ")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+    print(x)
